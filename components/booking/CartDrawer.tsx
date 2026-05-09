@@ -8,12 +8,27 @@ import type { AddonSelection, ClientConfig, TimeSlot } from "@/types";
 interface CartDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+<<<<<<< HEAD
+  selectedDate: Date;
+  selectedResourceLabel: string;
+=======
+>>>>>>> main
   selectedSlots: TimeSlot[];
   config: ClientConfig;
   onCheckoutComplete: () => void;
 }
 
+<<<<<<< HEAD
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  weekday: "long",
+  month: "long",
+  day: "numeric"
+});
+
+export function CartDrawer({ isOpen, onClose, selectedDate, selectedResourceLabel, selectedSlots, config, onCheckoutComplete }: CartDrawerProps) {
+=======
 export function CartDrawer({ isOpen, onClose, selectedSlots, config, onCheckoutComplete }: CartDrawerProps) {
+>>>>>>> main
   const [addonSelections, setAddonSelections] = useState<AddonSelection[]>([]);
   const slotSubtotal = calculateSlotSubtotal(selectedSlots, config.operatingHours.slotDurationMinutes);
   const addonSubtotal = calculateAddonSubtotal(config.addons, addonSelections);
@@ -42,6 +57,37 @@ export function CartDrawer({ isOpen, onClose, selectedSlots, config, onCheckoutC
   }
 
   return (
+<<<<<<< HEAD
+    <Drawer isOpen={isOpen} title="Reservation Summary" onClose={onClose}>
+      <div className="max-h-[72vh] overflow-y-auto pr-1">
+        <div className="mb-4 rounded-[1.5rem] border border-slate-100 bg-white p-4 shadow-sm">
+          <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-400">Reservation details</p>
+          <div className="mt-3 grid grid-cols-2 gap-3">
+            <div className="rounded-2xl bg-slate-50 p-3">
+              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Date</p>
+              <p className="mt-1 text-sm font-black text-slate-950">{dateFormatter.format(selectedDate)}</p>
+            </div>
+            <div className="rounded-2xl bg-slate-50 p-3">
+              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Space</p>
+              <p className="mt-1 text-sm font-black text-slate-950">{selectedResourceLabel}</p>
+            </div>
+          </div>
+        </div>
+
+        {sortedSlots.length === 0 ? (
+          <p className="rounded-[1.5rem] border border-dashed border-slate-200 bg-white p-5 text-center text-sm font-semibold text-slate-500">
+            Select one or more available slots to start a reservation.
+          </p>
+        ) : (
+          <div className="space-y-2.5">
+            {sortedSlots.map((slot) => (
+              <div key={slot.id} className="flex items-center justify-between rounded-[1.35rem] border border-slate-100 bg-white px-4 py-3 shadow-sm">
+                <div>
+                  <p className="font-black tracking-tight text-slate-950">{slot.displayTime}</p>
+                  <p className="text-xs font-semibold text-slate-500">{config.operatingHours.slotDurationMinutes}-minute reservation</p>
+                </div>
+                <p className="font-black text-slate-950">{formatCurrency(slot.pricePerHour * (config.operatingHours.slotDurationMinutes / 60))}</p>
+=======
     <Drawer isOpen={isOpen} title="Your Cart" onClose={onClose}>
       <div className="max-h-[72vh] overflow-y-auto pr-1">
         {sortedSlots.length === 0 ? (
@@ -55,17 +101,36 @@ export function CartDrawer({ isOpen, onClose, selectedSlots, config, onCheckoutC
                   <p className="text-xs font-semibold text-slate-500">{config.operatingHours.slotDurationMinutes}-minute slot</p>
                 </div>
                 <p className="font-black text-slate-900">{formatCurrency(slot.pricePerHour * (config.operatingHours.slotDurationMinutes / 60))}</p>
+>>>>>>> main
               </div>
             ))}
           </div>
         )}
 
+<<<<<<< HEAD
+        <div className="mt-6">
+          <h3 className="mb-3 text-[11px] font-black uppercase tracking-[0.22em] text-slate-400">Add-ons</h3>
+=======
         <div className="mt-5">
           <h3 className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-slate-500">Add-ons</h3>
+>>>>>>> main
           <div className="space-y-3">
             {config.addons.map((addon) => {
               const quantity = addonSelections.find((selection) => selection.addonId === addon.id)?.quantity ?? 0;
               return (
+<<<<<<< HEAD
+                <div key={addon.id} className="flex items-center justify-between rounded-[1.35rem] border border-slate-100 bg-white p-3 shadow-sm">
+                  <div>
+                    <p className="font-black text-slate-950">{addon.label}</p>
+                    <p className="text-xs font-semibold text-slate-500">{formatCurrency(addon.pricePerUnit)} each · up to {addon.maxUnits}</p>
+                  </div>
+                  <div className="flex items-center gap-2 rounded-full bg-slate-50 p-1">
+                    <button type="button" className="flex h-8 w-8 items-center justify-center rounded-full bg-white font-black text-slate-700 shadow-sm" onClick={() => setAddonQuantity(addon.id, Math.max(0, quantity - 1))}>
+                      −
+                    </button>
+                    <span className="w-5 text-center text-sm font-black">{quantity}</span>
+                    <button type="button" className="flex h-8 w-8 items-center justify-center rounded-full font-black text-white shadow-sm" style={{ backgroundColor: config.client.primaryColor }} onClick={() => setAddonQuantity(addon.id, Math.min(addon.maxUnits, quantity + 1))}>
+=======
                 <div key={addon.id} className="flex items-center justify-between rounded-2xl border border-slate-100 p-3">
                   <div>
                     <p className="font-bold text-slate-900">{addon.label}</p>
@@ -77,6 +142,7 @@ export function CartDrawer({ isOpen, onClose, selectedSlots, config, onCheckoutC
                     </button>
                     <span className="w-5 text-center font-black">{quantity}</span>
                     <button type="button" className="h-8 w-8 rounded-full bg-slate-900 font-black text-white" onClick={() => setAddonQuantity(addon.id, Math.min(addon.maxUnits, quantity + 1))}>
+>>>>>>> main
                       +
                     </button>
                   </div>
@@ -86,20 +152,38 @@ export function CartDrawer({ isOpen, onClose, selectedSlots, config, onCheckoutC
           </div>
         </div>
 
+<<<<<<< HEAD
+        <div className="mt-6 rounded-[1.5rem] border border-slate-100 bg-white p-4 shadow-sm">
+          <div className="space-y-2 text-sm font-bold">
+            <div className="flex justify-between text-slate-500"><span>Subtotal</span><span>{formatCurrency(slotSubtotal)}</span></div>
+            <div className="flex justify-between text-slate-500"><span>Add-ons</span><span>{formatCurrency(addonSubtotal)}</span></div>
+            <div className="border-t border-slate-100 pt-3">
+              <div className="flex justify-between text-xl font-black text-slate-950"><span>Total</span><span>{formatCurrency(total)}</span></div>
+            </div>
+          </div>
+=======
         <div className="mt-5 space-y-2 border-t border-slate-100 pt-4 text-sm font-bold">
           <div className="flex justify-between text-slate-500"><span>Slots</span><span>{formatCurrency(slotSubtotal)}</span></div>
           <div className="flex justify-between text-slate-500"><span>Add-ons</span><span>{formatCurrency(addonSubtotal)}</span></div>
           <div className="flex justify-between text-lg font-black text-slate-950"><span>Total</span><span>{formatCurrency(total)}</span></div>
+>>>>>>> main
         </div>
 
         <button
           type="button"
           disabled={!canCheckout}
           onClick={createBooking}
+<<<<<<< HEAD
+          className="mt-4 w-full rounded-[1.35rem] py-4 text-sm font-black uppercase tracking-[0.18em] text-white shadow-lg transition enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none"
+          style={canCheckout ? { backgroundColor: config.client.primaryColor, boxShadow: `0 18px 38px ${config.client.primaryColor}35` } : undefined}
+        >
+          Confirm reservation
+=======
           className="mt-5 w-full rounded-2xl py-4 text-sm font-black uppercase tracking-[0.18em] text-white disabled:cursor-not-allowed disabled:bg-slate-300"
           style={canCheckout ? { backgroundColor: config.client.primaryColor } : undefined}
         >
           Checkout
+>>>>>>> main
         </button>
       </div>
     </Drawer>

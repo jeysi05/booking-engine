@@ -20,7 +20,11 @@ export async function GET(_request: Request, context: RouteContext) {
     {
       id: "mock-booking-1001",
       date: "May 12, 2026",
+<<<<<<< HEAD
+      resourceLabel: config.resources[0]?.label ?? "Space",
+=======
       resourceLabel: config.resources[0]?.label ?? "Court",
+>>>>>>> main
       slots: ["10:00 AM", "10:30 AM"],
       total: 200,
       status: "confirmed"
@@ -28,7 +32,11 @@ export async function GET(_request: Request, context: RouteContext) {
     {
       id: "mock-booking-1002",
       date: "May 16, 2026",
+<<<<<<< HEAD
+      resourceLabel: config.resources[2]?.label ?? "Space",
+=======
       resourceLabel: config.resources[2]?.label ?? "Court",
+>>>>>>> main
       slots: ["6:00 PM"],
       total: 125,
       status: "pending"

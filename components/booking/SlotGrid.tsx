@@ -18,6 +18,26 @@ export function SlotGrid({ slots, tiers, selectedSlots, isLoading, error, onTogg
   const tierById = new Map(tiers.map((tier) => [tier.id, tier]));
 
   return (
+<<<<<<< HEAD
+    <section className="px-4 pb-48 pt-6 sm:px-0">
+      <div className="mb-4 flex items-end justify-between gap-3">
+        <div>
+          <p className="text-[11px] font-black uppercase tracking-[0.26em] text-slate-400">Step 3</p>
+          <h2 className="mt-1 text-2xl font-black tracking-tight text-slate-950">Pick your time</h2>
+        </div>
+        <p className="text-right text-xs font-bold leading-5 text-slate-500">{selectedSlots.length} selected</p>
+      </div>
+      <PricingLegend tiers={tiers} />
+
+      {isLoading ? (
+        <div className="rounded-[1.75rem] border border-white/80 bg-white/90 p-8 text-center shadow-sm">
+          <div className="mx-auto mb-3 h-10 w-10 animate-pulse rounded-full" style={{ backgroundColor: `${primaryColor}22` }} />
+          <p className="text-sm font-black text-slate-700">Loading available slots…</p>
+          <p className="mt-1 text-xs font-semibold text-slate-500">Checking the latest schedule for this space.</p>
+        </div>
+      ) : error ? (
+        <div className="rounded-[1.75rem] border border-red-100 bg-red-50 p-6 text-center text-sm font-bold text-red-700">{error}</div>
+=======
     <section className="px-4 py-5 pb-32">
       <p className="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slate-500">Step 3 · Pick Times</p>
       <PricingLegend tiers={tiers} />
@@ -26,6 +46,7 @@ export function SlotGrid({ slots, tiers, selectedSlots, isLoading, error, onTogg
         <div className="rounded-3xl bg-white p-6 text-center text-sm font-bold text-slate-500 shadow-sm">Loading available slots…</div>
       ) : error ? (
         <div className="rounded-3xl border border-red-100 bg-red-50 p-6 text-center text-sm font-bold text-red-700">{error}</div>
+>>>>>>> main
       ) : (
         <div className="grid grid-cols-2 gap-3">
           {slots.map((slot) => {
