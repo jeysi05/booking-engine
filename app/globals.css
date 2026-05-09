@@ -12,11 +12,15 @@
 
 html {
   scroll-behavior: smooth;
+<<<<<<< HEAD
   background: #f5f2ea;
+=======
+>>>>>>> main
 }
 
 body {
   margin: 0;
+<<<<<<< HEAD
   background:
     radial-gradient(circle at top left, rgba(46, 125, 94, 0.14), transparent 34rem),
     linear-gradient(135deg, #f8f5ed 0%, #eef4ed 52%, #f7f3ea 100%);
@@ -28,6 +32,12 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+=======
+  background: #f3f6f4;
+  color: #17231d;
+}
+
+>>>>>>> main
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

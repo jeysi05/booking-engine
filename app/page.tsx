@@ -11,15 +11,21 @@ import { HeroBanner } from "@/components/layout/HeroBanner";
 import { useBookingState } from "@/hooks/useBookingState";
 import { useSlots } from "@/hooks/useSlots";
 import { getConfig } from "@/lib/config";
+<<<<<<< HEAD
 import { calculateSlotSubtotal, formatCurrency } from "@/lib/pricing";
 
 const config = getConfig();
 const demoCategories = ["Villas", "Courts", "Pools", "Studios", "Event Spaces"];
 const featureCards = ["Config-driven branding", "Flexible pricing rules", "Mobile checkout flow", "Add-ons and lookup"];
+=======
+
+const config = getConfig();
+>>>>>>> main
 
 export default function BookingPage() {
   const booking = useBookingState(config.resources[0]?.id ?? "");
   const { slots, isLoading, error } = useSlots(booking.state.selectedDate, booking.state.selectedResource);
+<<<<<<< HEAD
   const selectedResource = config.resources.find((resource) => resource.id === booking.state.selectedResource) ?? config.resources[0];
   const estimatedTotal = calculateSlotSubtotal(booking.state.selectedSlots, config.operatingHours.slotDurationMinutes);
 
@@ -86,6 +92,21 @@ export default function BookingPage() {
         config={config}
         onCheckoutComplete={booking.clearSlots}
       />
+=======
+
+  return (
+    <main className="min-h-screen bg-[#f3f6f4]">
+      <Header config={config} />
+      <div className="mx-auto max-w-md">
+        <HeroBanner config={config} />
+        <DatePicker selectedDate={booking.state.selectedDate} onSelectDate={booking.selectDate} primaryColor={config.client.primaryColor} />
+        <CourtPicker resources={config.resources} selectedResource={booking.state.selectedResource} onSelectResource={booking.selectResource} primaryColor={config.client.primaryColor} />
+        <SlotGrid slots={slots} tiers={config.pricingTiers} selectedSlots={booking.state.selectedSlots} isLoading={isLoading} error={error} onToggleSlot={booking.toggleSlot} primaryColor={config.client.primaryColor} />
+      </div>
+      <FloatingActions config={config} />
+      <BottomNav slotCount={booking.state.selectedSlots.length} primaryColor={config.client.primaryColor} onOpenCart={booking.openCart} onCheckout={booking.openCart} />
+      <CartDrawer isOpen={booking.state.isCartOpen} onClose={booking.closeCart} selectedSlots={booking.state.selectedSlots} config={config} onCheckoutComplete={booking.clearSlots} />
+>>>>>>> main
     </main>
   );
 }

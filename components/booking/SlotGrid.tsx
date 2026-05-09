@@ -18,6 +18,7 @@ export function SlotGrid({ slots, tiers, selectedSlots, isLoading, error, onTogg
   const tierById = new Map(tiers.map((tier) => [tier.id, tier]));
 
   return (
+<<<<<<< HEAD
     <section className="px-4 pb-48 pt-6 sm:px-0">
       <div className="mb-4 flex items-end justify-between gap-3">
         <div>
@@ -36,6 +37,16 @@ export function SlotGrid({ slots, tiers, selectedSlots, isLoading, error, onTogg
         </div>
       ) : error ? (
         <div className="rounded-[1.75rem] border border-red-100 bg-red-50 p-6 text-center text-sm font-bold text-red-700">{error}</div>
+=======
+    <section className="px-4 py-5 pb-32">
+      <p className="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slate-500">Step 3 · Pick Times</p>
+      <PricingLegend tiers={tiers} />
+
+      {isLoading ? (
+        <div className="rounded-3xl bg-white p-6 text-center text-sm font-bold text-slate-500 shadow-sm">Loading available slots…</div>
+      ) : error ? (
+        <div className="rounded-3xl border border-red-100 bg-red-50 p-6 text-center text-sm font-bold text-red-700">{error}</div>
+>>>>>>> main
       ) : (
         <div className="grid grid-cols-2 gap-3">
           {slots.map((slot) => {

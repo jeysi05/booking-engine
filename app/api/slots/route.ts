@@ -5,12 +5,21 @@ import { generateSlots } from "@/lib/slots";
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const dateParam = searchParams.get("date");
+<<<<<<< HEAD
   const resourceParam = searchParams.get("resource") ?? searchParams.get("court");
   const config = getConfig();
   const resource = config.resources.find((item) => item.id === resourceParam) ?? config.resources[0];
 
   if (!dateParam || !resource) {
     return NextResponse.json({ error: "A valid date and resource are required." }, { status: 400 });
+=======
+  const courtParam = searchParams.get("court");
+  const config = getConfig();
+  const resource = config.resources.find((item) => item.id === courtParam) ?? config.resources[0];
+
+  if (!dateParam || !resource) {
+    return NextResponse.json({ error: "A valid date and court are required." }, { status: 400 });
+>>>>>>> main
   }
 
   const date = new Date(`${dateParam}T00:00:00`);

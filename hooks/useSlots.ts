@@ -21,12 +21,20 @@ export function useSlots(date: Date, resourceId: string) {
       setError(null);
 
       try {
+<<<<<<< HEAD
         const response = await fetch(`/api/slots?date=${dateParam}&resource=${resourceId}`, {
+=======
+        const response = await fetch(`/api/slots?date=${dateParam}&court=${resourceId}`, {
+>>>>>>> main
           signal: controller.signal
         });
 
         if (!response.ok) {
+<<<<<<< HEAD
           throw new Error("Unable to load slots for the selected space.");
+=======
+          throw new Error("Unable to load slots for the selected court.");
+>>>>>>> main
         }
 
         const payload = (await response.json()) as { slots: TimeSlot[] };
