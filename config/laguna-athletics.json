@@ -1,0 +1,168 @@
+{
+  "defaultProfileId": "villa",
+  "demoProfiles": [
+    {
+      "niche": "villa",
+      "bookingMode": "daily",
+      "pricingUnit": "night",
+      "client": {
+        "id": "villa",
+        "brandName": "LuxeStay Demo",
+        "logo": "https://placehold.co/600x400",
+        "heroImage": "https://placehold.co/600x400",
+        "heroTitle": "Book Your Private Stay",
+        "heroSubtitle": "Reserve villas and staycation spaces with a premium self-service flow.",
+        "primaryColor": "#7C4A2D",
+        "contact": {
+          "chatUrl": "https://m.me/placeholder",
+          "phone": "+639XXXXXXXXX",
+          "sms": "+639XXXXXXXXX"
+        }
+      },
+      "operatingHours": { "open": "08:00", "close": "24:00", "slotDurationMinutes": 1440 },
+      "resources": [
+        { "id": "garden-villa", "label": "Garden Villa", "image": "https://placehold.co/600x400", "description": "Private garden stay" },
+        { "id": "pool-villa", "label": "Pool Villa", "image": "https://placehold.co/600x400", "description": "Poolside overnight stay" },
+        { "id": "family-suite", "label": "Family Staycation Suite", "image": "https://placehold.co/600x400", "description": "Spacious family retreat" }
+      ],
+      "pricingTiers": [
+        { "id": "nightly", "label": "Nightly Stay Rate", "color": "gray", "ratePerHour": 8500, "rules": [] }
+      ],
+      "addons": [
+        { "id": "early-check-in", "label": "Early Check-in", "pricePerUnit": 1000, "maxUnits": 1 },
+        { "id": "extra-guest-pass", "label": "Extra Guest Pass", "pricePerUnit": 750, "maxUnits": 6 },
+        { "id": "breakfast-package", "label": "Breakfast Package", "pricePerUnit": 450, "maxUnits": 8 },
+        { "id": "pool-access", "label": "Pool Access", "pricePerUnit": 500, "maxUnits": 8 }
+      ],
+      "ui": {
+        "switcherLabel": "Villas",
+        "resourceHeading": "Choose your stay",
+        "dateHeading": "Select stay dates",
+        "timeHeading": "Stay duration",
+        "minimumLabel": "Overnight stay"
+      }
+    },
+    {
+      "niche": "court",
+      "bookingMode": "hourly",
+      "pricingUnit": "hour",
+      "client": {
+        "id": "court",
+        "brandName": "CourtFlow Demo",
+        "logo": "https://placehold.co/600x400",
+        "heroImage": "https://placehold.co/600x400",
+        "heroTitle": "Reserve Your Court",
+        "heroSubtitle": "Hourly bookings for pickleball, badminton, and private sports courts.",
+        "primaryColor": "#1A5F3D",
+        "contact": {
+          "chatUrl": "https://m.me/placeholder",
+          "phone": "+639XXXXXXXXX",
+          "sms": "+639XXXXXXXXX"
+        }
+      },
+      "operatingHours": { "open": "08:00", "close": "23:00", "slotDurationMinutes": 60 },
+      "resources": [
+        { "id": "pickleball-court", "label": "Pickleball Court", "image": "https://placehold.co/600x400", "description": "Premium court surface" },
+        { "id": "badminton-court", "label": "Badminton Court", "image": "https://placehold.co/600x400", "description": "Indoor sports court" },
+        { "id": "training-court", "label": "Training Court", "image": "https://placehold.co/600x400", "description": "Coaching-ready space" }
+      ],
+      "pricingTiers": [
+        { "id": "daytime", "label": "Daytime Court Rate", "color": "gray", "ratePerHour": 500, "rules": [{ "days": ["Mon", "Tue", "Wed", "Thu", "Fri"], "start": "08:00", "end": "17:00" }] },
+        { "id": "peak", "label": "Peak Court Rate", "color": "gray", "ratePerHour": 650, "rules": [{ "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "start": "17:00", "end": "23:00" }] },
+        { "id": "online", "label": "Standard Court Rate", "color": "gray", "ratePerHour": 600, "rules": [] }
+      ],
+      "addons": [
+        { "id": "racket-rental", "label": "Racket Rental", "pricePerUnit": 120, "maxUnits": 4 },
+        { "id": "ball-tube", "label": "Ball Tube", "pricePerUnit": 180, "maxUnits": 3 },
+        { "id": "coach-session", "label": "Coach Session", "pricePerUnit": 900, "maxUnits": 2 }
+      ],
+      "ui": {
+        "switcherLabel": "Courts",
+        "resourceHeading": "Choose a court",
+        "dateHeading": "Choose a play date",
+        "timeHeading": "Available court times",
+        "minimumLabel": "1 hour minimum"
+      }
+    },
+    {
+      "niche": "studio",
+      "bookingMode": "hourly",
+      "pricingUnit": "hour",
+      "client": {
+        "id": "studio",
+        "brandName": "StudioFlow Demo",
+        "logo": "https://placehold.co/600x400",
+        "heroImage": "https://placehold.co/600x400",
+        "heroTitle": "Book a Studio Session",
+        "heroSubtitle": "Hourly reservations for creative studios, podcast rooms, and production spaces.",
+        "primaryColor": "#4A3D8F",
+        "contact": {
+          "chatUrl": "https://m.me/placeholder",
+          "phone": "+639XXXXXXXXX",
+          "sms": "+639XXXXXXXXX"
+        }
+      },
+      "operatingHours": { "open": "09:00", "close": "22:00", "slotDurationMinutes": 60 },
+      "resources": [
+        { "id": "photo-studio", "label": "Photo Studio", "image": "https://placehold.co/600x400", "description": "Natural-light production space" },
+        { "id": "podcast-room", "label": "Podcast Room", "image": "https://placehold.co/600x400", "description": "Audio-ready recording room" },
+        { "id": "creative-suite", "label": "Creative Suite", "image": "https://placehold.co/600x400", "description": "Flexible content studio" }
+      ],
+      "pricingTiers": [
+        { "id": "studio-standard", "label": "Hourly Studio Rental", "color": "gray", "ratePerHour": 1200, "rules": [] }
+      ],
+      "addons": [
+        { "id": "lighting-kit", "label": "Lighting Kit", "pricePerUnit": 500, "maxUnits": 2 },
+        { "id": "backdrop-rental", "label": "Backdrop Rental", "pricePerUnit": 350, "maxUnits": 3 },
+        { "id": "extra-microphone", "label": "Extra Microphone", "pricePerUnit": 250, "maxUnits": 4 }
+      ],
+      "ui": {
+        "switcherLabel": "Studios",
+        "resourceHeading": "Choose a studio",
+        "dateHeading": "Choose a session date",
+        "timeHeading": "Available studio times",
+        "minimumLabel": "Hourly studio rental"
+      }
+    },
+    {
+      "niche": "resort",
+      "bookingMode": "daily",
+      "pricingUnit": "day",
+      "client": {
+        "id": "resort",
+        "brandName": "ResortFlow Demo",
+        "logo": "https://placehold.co/600x400",
+        "heroImage": "https://placehold.co/600x400",
+        "heroTitle": "Plan Your Resort Escape",
+        "heroSubtitle": "Day-pass and overnight reservation flows for private resorts.",
+        "primaryColor": "#0F5C6E",
+        "contact": {
+          "chatUrl": "https://m.me/placeholder",
+          "phone": "+639XXXXXXXXX",
+          "sms": "+639XXXXXXXXX"
+        }
+      },
+      "operatingHours": { "open": "08:00", "close": "20:00", "slotDurationMinutes": 1440 },
+      "resources": [
+        { "id": "pool-day-pass", "label": "Pool Day Pass", "image": "https://placehold.co/600x400", "description": "Day access for resort amenities" },
+        { "id": "cabana-access", "label": "Cabana Access", "image": "https://placehold.co/600x400", "description": "Private shaded lounge" },
+        { "id": "overnight-suite", "label": "Overnight Suite", "image": "https://placehold.co/600x400", "description": "Premium resort suite" }
+      ],
+      "pricingTiers": [
+        { "id": "day-pass", "label": "Resort Day Pass", "color": "gray", "ratePerHour": 2500, "rules": [] }
+      ],
+      "addons": [
+        { "id": "towel-package", "label": "Towel Package", "pricePerUnit": 150, "maxUnits": 6 },
+        { "id": "meal-voucher", "label": "Meal Voucher", "pricePerUnit": 650, "maxUnits": 6 },
+        { "id": "extra-guest-pass", "label": "Extra Guest Pass", "pricePerUnit": 900, "maxUnits": 6 }
+      ],
+      "ui": {
+        "switcherLabel": "Resorts",
+        "resourceHeading": "Choose a resort space",
+        "dateHeading": "Select visit date",
+        "timeHeading": "Visit duration",
+        "minimumLabel": "Day pass"
+      }
+    }
+  ]
+}
