@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "check:conflicts": "node -e \"const fs=require('fs'),path=require('path');const bad=['<<<<<<<','=======','>>>>>>>'];const skip=new Set(['node_modules','.next','.git']);function walk(d){for(const f of fs.readdirSync(d)){const p=path.join(d,f);const s=fs.statSync(p);if(s.isDirectory()){if(!skip.has(f))walk(p)}else{const t=fs.readFileSync(p,'utf8');for(const b of bad){if(t.includes(b)){console.error('Conflict marker found:',p,b);process.exitCode=1}}}}}walk('.')\"",
+    "check:json": "node -e \"for(const f of ['package.json','tsconfig.json','.eslintrc.json','config/laguna-athletics.json']){JSON.parse(require('fs').readFileSync(f,'utf8')); console.log('valid json:',f)}\"",
+    "verify": "npm run check:conflicts && npm run check:json && npm run build"
   },
   "dependencies": {
     "next": "14.2.5",
@@ -18,7 +20,6 @@
     "@types/node": "20.14.10",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "autoprefixer": "10.4.19",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.5",
     "postcss": "8.4.39",
