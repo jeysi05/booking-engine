@@ -27,24 +27,19 @@ function isSameDay(a: Date, b: Date): boolean {
 
 export function DatePicker({ selectedDate, onSelectDate, primaryColor }: DatePickerProps) {
   return (
-    <section className="px-4 pt-6 sm:px-0">
-      <div className="mb-4 flex items-end justify-between">
+    <section className="rounded-3xl border border-[#E5E1DA] bg-white p-5 shadow-sm sm:p-6">
+      <div className="mb-4 flex items-end justify-between gap-4">
         <div>
-          <p className="text-[11px] font-black uppercase tracking-[0.26em] text-slate-400">Step 1</p>
-          <h2 className="mt-1 text-2xl font-black tracking-tight text-slate-950">Choose your date</h2>
+          <p className="text-sm text-[#A8A29E]">Step 1</p>
+          <h2 className="text-xl font-medium text-[#1C1917]">Pick a date</h2>
         </div>
-        <p className="text-xs font-bold text-slate-500">Next 7 days</p>
+        <p className="text-sm text-[#78716C]">Next 7 days</p>
       </div>
-      <div className="scrollbar-hide -mx-4 flex gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
+      <div className="scrollbar-hide -mx-1 flex snap-x gap-3 overflow-x-auto px-1 pb-1">
         {getNextSevenDays().map((date, index) => {
           const selected = isSameDay(date, selectedDate);
           const selectedStyle: CSSProperties | undefined = selected
-            ? {
-                background: `linear-gradient(145deg, ${primaryColor}, #13251d)`,
-                borderColor: primaryColor,
-                color: "white",
-                boxShadow: `0 18px 35px ${primaryColor}33`
-              }
+            ? { backgroundColor: primaryColor, borderColor: primaryColor, color: "white" }
             : undefined;
 
           return (
@@ -52,11 +47,11 @@ export function DatePicker({ selectedDate, onSelectDate, primaryColor }: DatePic
               key={date.toISOString()}
               type="button"
               onClick={() => onSelectDate(date)}
-              className="min-w-[92px] rounded-3xl border border-slate-200/80 bg-white/90 px-3 py-4 text-center shadow-sm shadow-slate-900/5 transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-900/10"
+              className="h-20 w-16 shrink-0 snap-start rounded-xl border border-[#E5E1DA] bg-white text-center transition hover:border-[#C5BFB8] active:scale-[0.98]"
               style={selectedStyle}
             >
-              <span className="block text-[11px] font-black uppercase tracking-[0.18em] opacity-70">{index === 0 ? "Today" : weekdayFormatter.format(date)}</span>
-              <span className="mt-2 block text-xl font-black tracking-tight">{monthDayFormatter.format(date)}</span>
+              <span className="block text-xs font-medium opacity-70">{index === 0 ? "Today" : weekdayFormatter.format(date)}</span>
+              <span className="mt-1 block text-sm font-semibold">{monthDayFormatter.format(date)}</span>
             </button>
           );
         })}

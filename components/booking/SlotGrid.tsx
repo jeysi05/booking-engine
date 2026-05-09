@@ -18,26 +18,22 @@ export function SlotGrid({ slots, tiers, selectedSlots, isLoading, error, onTogg
   const tierById = new Map(tiers.map((tier) => [tier.id, tier]));
 
   return (
-    <section className="px-4 pb-48 pt-6 sm:px-0">
-      <div className="mb-4 flex items-end justify-between gap-3">
+    <section className="rounded-3xl border border-[#E5E1DA] bg-white p-5 shadow-sm sm:p-6">
+      <div className="mb-4 flex items-end justify-between gap-4">
         <div>
-          <p className="text-[11px] font-black uppercase tracking-[0.26em] text-slate-400">Step 3</p>
-          <h2 className="mt-1 text-2xl font-black tracking-tight text-slate-950">Pick your time</h2>
+          <p className="text-sm text-[#A8A29E]">Step 3</p>
+          <h2 className="text-xl font-medium text-[#1C1917]">Available times</h2>
         </div>
-        <p className="text-right text-xs font-bold leading-5 text-slate-500">{selectedSlots.length} selected</p>
+        <p className="text-sm text-[#78716C]">{selectedSlots.length} selected</p>
       </div>
       <PricingLegend tiers={tiers} />
 
       {isLoading ? (
-        <div className="rounded-[1.75rem] border border-white/80 bg-white/90 p-8 text-center shadow-sm">
-          <div className="mx-auto mb-3 h-10 w-10 animate-pulse rounded-full" style={{ backgroundColor: `${primaryColor}22` }} />
-          <p className="text-sm font-black text-slate-700">Loading available slots…</p>
-          <p className="mt-1 text-xs font-semibold text-slate-500">Checking the latest schedule for this space.</p>
-        </div>
+        <div className="mt-4 rounded-2xl border border-[#E5E1DA] bg-[#F9F7F4] p-6 text-center text-sm text-[#78716C]">Loading available times…</div>
       ) : error ? (
-        <div className="rounded-[1.75rem] border border-red-100 bg-red-50 p-6 text-center text-sm font-bold text-red-700">{error}</div>
+        <div className="mt-4 rounded-2xl border border-red-100 bg-red-50 p-6 text-center text-sm font-medium text-red-700">{error}</div>
       ) : (
-        <div className="grid grid-cols-2 gap-3">
+        <div className="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-5 md:grid-cols-6">
           {slots.map((slot) => {
             const tier = tierById.get(slot.pricingTierId) ?? tiers[0];
             return (

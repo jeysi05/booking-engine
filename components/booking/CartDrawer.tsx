@@ -53,21 +53,21 @@ export function CartDrawer({ isOpen, onClose, selectedDate, selectedResourceLabe
     <Drawer isOpen={isOpen} title="Reservation Summary" onClose={onClose}>
       <div className="max-h-[72vh] overflow-y-auto pr-1">
         <div className="mb-4 rounded-[1.5rem] border border-slate-100 bg-white p-4 shadow-sm">
-          <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-400">Reservation details</p>
+          <p className="text-sm text-[#A8A29E]">Reservation details</p>
           <div className="mt-3 grid grid-cols-2 gap-3">
             <div className="rounded-2xl bg-slate-50 p-3">
               <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Date</p>
-              <p className="mt-1 text-sm font-black text-slate-950">{dateFormatter.format(selectedDate)}</p>
+              <p className="mt-1 text-sm font-medium text-[#1C1917]">{dateFormatter.format(selectedDate)}</p>
             </div>
             <div className="rounded-2xl bg-slate-50 p-3">
               <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Space</p>
-              <p className="mt-1 text-sm font-black text-slate-950">{selectedResourceLabel}</p>
+              <p className="mt-1 text-sm font-medium text-[#1C1917]">{selectedResourceLabel}</p>
             </div>
           </div>
         </div>
 
         {sortedSlots.length === 0 ? (
-          <p className="rounded-[1.5rem] border border-dashed border-slate-200 bg-white p-5 text-center text-sm font-semibold text-slate-500">
+          <p className="rounded-[1.5rem] border border-dashed border-slate-200 bg-white p-5 text-center text-sm font-semibold text-[#78716C]">
             Select one or more available slots to start a reservation.
           </p>
         ) : (
@@ -75,25 +75,26 @@ export function CartDrawer({ isOpen, onClose, selectedDate, selectedResourceLabe
             {sortedSlots.map((slot) => (
               <div key={slot.id} className="flex items-center justify-between rounded-[1.35rem] border border-slate-100 bg-white px-4 py-3 shadow-sm">
                 <div>
-                  <p className="font-black tracking-tight text-slate-950">{slot.displayTime}</p>
-                  <p className="text-xs font-semibold text-slate-500">{config.operatingHours.slotDurationMinutes}-minute reservation</p>
+                  <p className="font-medium text-[#1C1917]">{slot.displayTime}</p>
+                  <p className="text-xs text-[#78716C]">{config.operatingHours.slotDurationMinutes}-minute reservation</p>
                 </div>
-                <p className="font-black text-slate-950">{formatCurrency(slot.pricePerHour * (config.operatingHours.slotDurationMinutes / 60))}</p>
+                <p className="font-medium text-[#1C1917]">{formatCurrency(slot.pricePerHour * (config.operatingHours.slotDurationMinutes / 60))}</p>
               </div>
             ))}
           </div>
         )}
 
-        <div className="mt-6">
-          <h3 className="mb-3 text-[11px] font-black uppercase tracking-[0.22em] text-slate-400">Add-ons</h3>
+        {canCheckout ? (
+          <div className="mt-6">
+            <h3 className="mb-3 text-sm text-[#A8A29E]">Add-ons</h3>
           <div className="space-y-3">
             {config.addons.map((addon) => {
               const quantity = addonSelections.find((selection) => selection.addonId === addon.id)?.quantity ?? 0;
               return (
                 <div key={addon.id} className="flex items-center justify-between rounded-[1.35rem] border border-slate-100 bg-white p-3 shadow-sm">
                   <div>
-                    <p className="font-black text-slate-950">{addon.label}</p>
-                    <p className="text-xs font-semibold text-slate-500">{formatCurrency(addon.pricePerUnit)} each · up to {addon.maxUnits}</p>
+                    <p className="font-medium text-[#1C1917]">{addon.label}</p>
+                    <p className="text-xs text-[#78716C]">{formatCurrency(addon.pricePerUnit)} each · up to {addon.maxUnits}</p>
                   </div>
                   <div className="flex items-center gap-2 rounded-full bg-slate-50 p-1">
                     <button type="button" className="flex h-8 w-8 items-center justify-center rounded-full bg-white font-black text-slate-700 shadow-sm" onClick={() => setAddonQuantity(addon.id, Math.max(0, quantity - 1))}>
@@ -107,15 +108,16 @@ export function CartDrawer({ isOpen, onClose, selectedDate, selectedResourceLabe
                 </div>
               );
             })}
+            </div>
           </div>
-        </div>
+        ) : null}
 
         <div className="mt-6 rounded-[1.5rem] border border-slate-100 bg-white p-4 shadow-sm">
-          <div className="space-y-2 text-sm font-bold">
-            <div className="flex justify-between text-slate-500"><span>Subtotal</span><span>{formatCurrency(slotSubtotal)}</span></div>
-            <div className="flex justify-between text-slate-500"><span>Add-ons</span><span>{formatCurrency(addonSubtotal)}</span></div>
+          <div className="space-y-2 text-sm">
+            <div className="flex justify-between text-[#78716C]"><span>Subtotal</span><span>{formatCurrency(slotSubtotal)}</span></div>
+            <div className="flex justify-between text-[#78716C]"><span>Add-ons</span><span>{formatCurrency(addonSubtotal)}</span></div>
             <div className="border-t border-slate-100 pt-3">
-              <div className="flex justify-between text-xl font-black text-slate-950"><span>Total</span><span>{formatCurrency(total)}</span></div>
+              <div className="flex justify-between text-xl font-medium text-[#1C1917]"><span>Total</span><span>{formatCurrency(total)}</span></div>
             </div>
           </div>
         </div>
@@ -124,7 +126,7 @@ export function CartDrawer({ isOpen, onClose, selectedDate, selectedResourceLabe
           type="button"
           disabled={!canCheckout}
           onClick={createBooking}
-          className="mt-4 w-full rounded-[1.35rem] py-4 text-sm font-black uppercase tracking-[0.18em] text-white shadow-lg transition enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none"
+          className="mt-4 w-full rounded-[1.35rem] py-4 text-sm font-black uppercase tracking-[0.18em] text-white shadow-lg transition enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:bg-[#C5BFB8] disabled:shadow-none"
           style={canCheckout ? { backgroundColor: config.client.primaryColor, boxShadow: `0 18px 38px ${config.client.primaryColor}35` } : undefined}
         >
           Confirm reservation
