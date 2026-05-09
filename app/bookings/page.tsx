@@ -3,11 +3,11 @@
 import type { CSSProperties, FormEvent } from "react";
 import { useState } from "react";
 import { Header } from "@/components/layout/Header";
-import { getConfig } from "@/lib/config";
+import { getDefaultProfile } from "@/lib/config";
 import { formatCurrency } from "@/lib/pricing";
 import type { BookingLookupResult } from "@/types";
 
-const config = getConfig();
+const profile = getDefaultProfile();
 
 export default function MyBookingsPage() {
   const [phone, setPhone] = useState("");
@@ -22,9 +22,7 @@ export default function MyBookingsPage() {
 
     try {
       const response = await fetch(`/api/bookings/${encodeURIComponent(phone)}`);
-      if (!response.ok) {
-        throw new Error("Unable to retrieve bookings for that phone number.");
-      }
+      if (!response.ok) throw new Error("Unable to retrieve bookings for that phone number.");
       const payload = (await response.json()) as { bookings: BookingLookupResult[] };
       setBookings(payload.bookings);
     } catch (lookupError) {
@@ -36,7 +34,7 @@ export default function MyBookingsPage() {
 
   return (
     <main className="min-h-screen bg-[#F9F7F4] text-[#1C1917]">
-      <Header config={config} />
+      <Header profile={profile} />
       <section className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
         <div className="rounded-3xl border border-[#E5E1DA] bg-white p-6 shadow-sm sm:p-8">
           <h1 className="font-serif text-4xl leading-tight text-[#1C1917]">Find your reservation</h1>
@@ -48,11 +46,11 @@ export default function MyBookingsPage() {
               onChange={(event) => setPhone(event.target.value)}
               required
               inputMode="tel"
-              placeholder={config.client.contact.phone}
+              placeholder={profile.client.contact.phone}
               className="w-full rounded-xl border border-[#E5E1DA] bg-white px-4 py-3 text-sm text-[#1C1917] outline-none transition placeholder:text-[#A8A29E] focus:border-transparent focus:ring-2"
-              style={{ "--tw-ring-color": config.client.primaryColor } as CSSProperties}
+              style={{ "--tw-ring-color": profile.client.primaryColor } as CSSProperties}
             />
-            <button type="submit" className="rounded-xl px-5 py-3 text-sm font-medium text-white transition active:scale-[0.98]" style={{ backgroundColor: config.client.primaryColor }}>
+            <button type="submit" className="rounded-xl px-5 py-3 text-sm font-medium text-white transition active:scale-[0.98]" style={{ backgroundColor: profile.client.primaryColor }}>
               {isLoading ? "Searching…" : "Search"}
             </button>
           </form>
@@ -67,14 +65,9 @@ export default function MyBookingsPage() {
                 <div>
                   <p className="text-xs capitalize text-[#A8A29E]">{booking.status}</p>
                   <h2 className="mt-1 text-lg font-medium text-[#1C1917]">{booking.resourceLabel}</h2>
-                  <p className="mt-1 text-sm text-[#78716C]">{booking.date}</p>
+                  <p className="mt-1 text-sm text-[#78716C]">{booking.date} · {booking.durationLabel}</p>
                 </div>
                 <p className="rounded-full bg-[#F2F0EC] px-3 py-1.5 text-sm font-medium text-[#1C1917]">{formatCurrency(booking.total)}</p>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {booking.slots.map((slot) => (
-                  <span key={slot} className="rounded-full border border-[#E5E1DA] px-3 py-1.5 text-xs text-[#78716C]">{slot}</span>
-                ))}
               </div>
             </article>
           ))}

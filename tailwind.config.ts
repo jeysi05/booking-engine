@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        serif: ["Georgia", "Cambria", "Times New Roman", "serif"]
+      },
       boxShadow: {
         soft: "0 18px 45px rgba(15, 23, 42, 0.12)"
       }

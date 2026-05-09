@@ -33,7 +33,7 @@ export function SlotCard({ slot, tier, isSelected, onToggle, primaryColor }: Slo
       aria-pressed={isSelected}
     >
       <span className="block font-medium">{slot.displayTime}</span>
-      <span className="mt-1 block text-[11px] opacity-70">{isUnavailable ? slot.status : formatCurrency(slot.pricePerHour / 2)}</span>
+      <span className="mt-1 block text-[11px] opacity-70">{isUnavailable ? slot.status : formatCurrency(slot.price)}</span>
     </button>
   );
 }

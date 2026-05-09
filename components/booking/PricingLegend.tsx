@@ -1,30 +1,50 @@
-import type { PricingTier } from "@/types";
-import { formatCurrency } from "@/lib/pricing";
+import { formatCurrency, getUnitLabel } from "@/lib/pricing";
+import type { DemoProfile, PricingTier, Resource } from "@/types";
 
 const dotClasses: Record<PricingTier["color"], string> = {
   blue: "bg-stone-400",
   orange: "bg-stone-500",
   yellow: "bg-stone-300",
-  gray: "bg-stone-300"
+  gray: "bg-stone-300",
+  green: "bg-emerald-700",
+  stone: "bg-stone-500"
 };
 
 interface PricingLegendProps {
+  profile: DemoProfile;
   tiers: PricingTier[];
+  selectedResource?: Resource;
 }
 
-export function PricingLegend({ tiers }: PricingLegendProps) {
+export function PricingLegend({ profile, tiers, selectedResource }: PricingLegendProps) {
+  if (profile.bookingMode !== "hourly" && selectedResource) {
+    return (
+      <div className="rounded-2xl border border-[#E5E1DA] bg-[#F9F7F4] p-4">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <h3 className="text-sm font-medium text-[#1C1917]">Rate guide</h3>
+            <p className="mt-1 text-sm text-[#78716C]">{selectedResource.label}</p>
+          </div>
+          <span className="text-sm font-medium text-[#1C1917]">
+            {formatCurrency(selectedResource.baseRate)} / {getUnitLabel(profile.pricingUnit)}
+          </span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="rounded-2xl border border-[#E5E1DA] bg-[#F9F7F4] p-4">
       <div className="mb-3 flex items-center justify-between gap-3">
         <h3 className="text-sm font-medium text-[#1C1917]">Rate guide</h3>
-        <span className="text-xs text-[#78716C]">Per hour</span>
+        <span className="text-xs text-[#78716C]">Per {getUnitLabel(profile.pricingUnit)}</span>
       </div>
       <div className="grid gap-2 sm:grid-cols-2">
         {tiers.map((tier) => (
           <div key={tier.id} className="flex items-center gap-2 text-sm text-[#78716C]">
             <span className={`h-2 w-2 shrink-0 rounded-full ${dotClasses[tier.color]}`} />
             <span className="min-w-0 flex-1 truncate">{tier.label}</span>
-            <span className="font-medium text-[#1C1917]">{formatCurrency(tier.ratePerHour)}</span>
+            <span className="font-medium text-[#1C1917]">{formatCurrency(tier.rate)}</span>
           </div>
         ))}
       </div>

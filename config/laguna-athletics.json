@@ -1,116 +1,355 @@
 {
-  "client": {
-    "id": "venueflow-demo",
-    "brandName": "VenueFlow Demo",
-    "logo": "https://placehold.co/600x400",
-    "heroImage": "https://placehold.co/600x400",
-    "heroTitle": "Reserve Your Perfect Space",
-    "heroSubtitle": "A flexible reservation experience for villas, staycations, courts, studios, and resort amenities.",
-    "primaryColor": "#1A3A2A",
-    "contact": {
-      "chatUrl": "https://m.me/placeholder",
-      "phone": "+639XXXXXXXXX",
-      "sms": "+639XXXXXXXXX"
-    }
-  },
-  "operatingHours": {
-    "open": "08:00",
-    "close": "24:00",
-    "slotDurationMinutes": 30
-  },
-  "resources": [
+  "defaultProfileId": "villa",
+  "demoProfiles": [
     {
-      "id": "garden-villa",
-      "label": "Garden Villa",
-      "image": "https://placehold.co/600x400"
-    },
-    {
-      "id": "poolside-lounge",
-      "label": "Poolside Lounge",
-      "image": "https://placehold.co/600x400"
-    },
-    {
-      "id": "private-court",
-      "label": "Private Court",
-      "image": "https://placehold.co/600x400"
-    },
-    {
-      "id": "studio-room",
-      "label": "Studio Room",
-      "image": "https://placehold.co/600x400"
-    },
-    {
-      "id": "resort-suite",
-      "label": "Resort Suite",
-      "image": "https://placehold.co/600x400"
-    }
-  ],
-  "pricingTiers": [
-    {
-      "id": "special",
-      "label": "Introductory Rate",
-      "color": "blue",
-      "ratePerHour": 150,
-      "rules": []
-    },
-    {
-      "id": "standard",
-      "label": "Weekday Day Rate",
-      "color": "orange",
-      "ratePerHour": 200,
-      "rules": [
+      "id": "villa",
+      "label": "Villas",
+      "niche": "villa",
+      "bookingMode": "nightly",
+      "pricingUnit": "night",
+      "minimumUnits": 1,
+      "client": {
+        "id": "luxestay-demo",
+        "brandName": "LuxeStay Demo",
+        "logo": "https://placehold.co/600x400",
+        "heroImage": "https://placehold.co/1200x700",
+        "heroTitle": "Book Your Private Stay",
+        "heroSubtitle": "A premium staycation booking flow for villas, pool homes, and private overnight spaces.",
+        "primaryColor": "#1A3A2A",
+        "contact": {
+          "chatUrl": "https://m.me/placeholder",
+          "phone": "+639XXXXXXXXX",
+          "sms": "+639XXXXXXXXX"
+        }
+      },
+      "resources": [
         {
-          "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
-          "start": "10:00",
-          "end": "16:00"
+          "id": "garden-villa",
+          "label": "Garden Villa",
+          "image": "https://placehold.co/900x650",
+          "description": "Private garden stay with lounge access and outdoor dining.",
+          "capacityLabel": "Up to 12 guests",
+          "baseRate": 8500
+        },
+        {
+          "id": "pool-villa",
+          "label": "Pool Villa",
+          "image": "https://placehold.co/900x650",
+          "description": "Overnight villa with exclusive pool use and cabana seating.",
+          "capacityLabel": "Up to 16 guests",
+          "baseRate": 12000
+        },
+        {
+          "id": "family-suite",
+          "label": "Family Staycation Suite",
+          "image": "https://placehold.co/900x650",
+          "description": "Comfortable private suite for short family stays.",
+          "capacityLabel": "Up to 8 guests",
+          "baseRate": 6500
+        }
+      ],
+      "pricingTiers": [
+        {
+          "id": "standard-night",
+          "label": "Standard Nightly Rate",
+          "color": "green",
+          "rate": 8500,
+          "unit": "night",
+          "rules": []
+        }
+      ],
+      "addons": [
+        {
+          "id": "early-check-in",
+          "label": "Early Check-in",
+          "pricePerUnit": 750,
+          "maxUnits": 1
+        },
+        {
+          "id": "extra-guest-pass",
+          "label": "Extra Guest Pass",
+          "pricePerUnit": 500,
+          "maxUnits": 8
+        },
+        {
+          "id": "breakfast-package",
+          "label": "Breakfast Package",
+          "pricePerUnit": 350,
+          "maxUnits": 12
         }
       ]
     },
     {
-      "id": "peak",
-      "label": "Prime Evening Rate",
-      "color": "yellow",
-      "ratePerHour": 250,
-      "rules": [
+      "id": "court",
+      "label": "Courts",
+      "niche": "court",
+      "bookingMode": "hourly",
+      "pricingUnit": "hour",
+      "minimumUnits": 1,
+      "client": {
+        "id": "courtflow-demo",
+        "brandName": "CourtFlow Demo",
+        "logo": "https://placehold.co/600x400",
+        "heroImage": "https://placehold.co/1200x700",
+        "heroTitle": "Reserve Your Court",
+        "heroSubtitle": "Hourly bookings for pickleball, badminton, and private sports courts.",
+        "primaryColor": "#123C32",
+        "contact": {
+          "chatUrl": "https://m.me/placeholder",
+          "phone": "+639XXXXXXXXX",
+          "sms": "+639XXXXXXXXX"
+        }
+      },
+      "operatingHours": {
+        "open": "08:00",
+        "close": "24:00",
+        "slotDurationMinutes": 60
+      },
+      "resources": [
         {
-          "days": ["Mon", "Tue", "Wed", "Thu"],
-          "start": "16:00",
-          "end": "22:00"
+          "id": "pickleball-court",
+          "label": "Pickleball Court",
+          "image": "https://placehold.co/900x650",
+          "description": "Premium indoor court for private hourly play.",
+          "capacityLabel": "Up to 4 players",
+          "baseRate": 500
+        },
+        {
+          "id": "badminton-court",
+          "label": "Badminton Court",
+          "image": "https://placehold.co/900x650",
+          "description": "Fast-turnover court booking for singles or doubles.",
+          "capacityLabel": "Up to 4 players",
+          "baseRate": 450
+        },
+        {
+          "id": "training-court",
+          "label": "Training Court",
+          "image": "https://placehold.co/900x650",
+          "description": "Dedicated practice court for lessons and drills.",
+          "capacityLabel": "Coach-ready court",
+          "baseRate": 650
+        }
+      ],
+      "pricingTiers": [
+        {
+          "id": "weekday",
+          "label": "Weekday Hourly Rate",
+          "color": "green",
+          "rate": 500,
+          "unit": "hour",
+          "rules": [
+            {
+              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "start": "08:00",
+              "end": "17:00"
+            }
+          ]
+        },
+        {
+          "id": "peak",
+          "label": "Peak Hourly Rate",
+          "color": "stone",
+          "rate": 650,
+          "unit": "hour",
+          "rules": [
+            {
+              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "start": "17:00",
+              "end": "22:00"
+            }
+          ]
+        },
+        {
+          "id": "standard",
+          "label": "Standard Hourly Rate",
+          "color": "gray",
+          "rate": 550,
+          "unit": "hour",
+          "rules": []
+        }
+      ],
+      "addons": [
+        {
+          "id": "racket-rental",
+          "label": "Racket Rental",
+          "pricePerUnit": 80,
+          "maxUnits": 4
+        },
+        {
+          "id": "ball-tube",
+          "label": "Ball Tube",
+          "pricePerUnit": 120,
+          "maxUnits": 3
+        },
+        {
+          "id": "coach-session",
+          "label": "Coach Session",
+          "pricePerUnit": 700,
+          "maxUnits": 1
         }
       ]
     },
     {
-      "id": "online",
-      "label": "Standard Online Rate",
-      "color": "gray",
-      "ratePerHour": 350,
-      "rules": []
-    }
-  ],
-  "addons": [
-    {
-      "id": "equipment-rental",
-      "label": "Equipment Rental",
-      "pricePerUnit": 50,
-      "maxUnits": 4
+      "id": "studio",
+      "label": "Studios",
+      "niche": "studio",
+      "bookingMode": "hourly",
+      "pricingUnit": "hour",
+      "minimumUnits": 1,
+      "client": {
+        "id": "studioflow-demo",
+        "brandName": "StudioFlow Demo",
+        "logo": "https://placehold.co/600x400",
+        "heroImage": "https://placehold.co/1200x700",
+        "heroTitle": "Book a Studio Session",
+        "heroSubtitle": "Hourly reservations for creative studios, podcast rooms, and production spaces.",
+        "primaryColor": "#3B342C",
+        "contact": {
+          "chatUrl": "https://m.me/placeholder",
+          "phone": "+639XXXXXXXXX",
+          "sms": "+639XXXXXXXXX"
+        }
+      },
+      "operatingHours": {
+        "open": "09:00",
+        "close": "22:00",
+        "slotDurationMinutes": 60
+      },
+      "resources": [
+        {
+          "id": "photo-studio",
+          "label": "Photo Studio",
+          "image": "https://placehold.co/900x650",
+          "description": "Natural-light studio for shoots and campaigns.",
+          "capacityLabel": "Up to 8 guests",
+          "baseRate": 1200
+        },
+        {
+          "id": "podcast-room",
+          "label": "Podcast Room",
+          "image": "https://placehold.co/900x650",
+          "description": "Sound-treated room with production-ready setup.",
+          "capacityLabel": "Up to 4 guests",
+          "baseRate": 900
+        },
+        {
+          "id": "creative-suite",
+          "label": "Creative Suite",
+          "image": "https://placehold.co/900x650",
+          "description": "Flexible studio for content, workshops, and brand shoots.",
+          "capacityLabel": "Up to 10 guests",
+          "baseRate": 1500
+        }
+      ],
+      "pricingTiers": [
+        {
+          "id": "standard",
+          "label": "Standard Studio Rate",
+          "color": "stone",
+          "rate": 1200,
+          "unit": "hour",
+          "rules": []
+        }
+      ],
+      "addons": [
+        {
+          "id": "lighting-kit",
+          "label": "Lighting Kit",
+          "pricePerUnit": 500,
+          "maxUnits": 2
+        },
+        {
+          "id": "backdrop-rental",
+          "label": "Backdrop Rental",
+          "pricePerUnit": 350,
+          "maxUnits": 3
+        },
+        {
+          "id": "extra-microphone",
+          "label": "Extra Microphone",
+          "pricePerUnit": 250,
+          "maxUnits": 4
+        }
+      ]
     },
     {
-      "id": "early-access",
-      "label": "Early Access",
-      "pricePerUnit": 100,
-      "maxUnits": 2
-    },
-    {
-      "id": "extra-guest-pass",
-      "label": "Extra Guest Pass",
-      "pricePerUnit": 75,
-      "maxUnits": 6
-    },
-    {
-      "id": "refreshment-package",
-      "label": "Refreshment Package",
-      "pricePerUnit": 120,
-      "maxUnits": 4
+      "id": "resort",
+      "label": "Resorts",
+      "niche": "resort",
+      "bookingMode": "daily",
+      "pricingUnit": "day",
+      "minimumUnits": 1,
+      "client": {
+        "id": "resortflow-demo",
+        "brandName": "ResortFlow Demo",
+        "logo": "https://placehold.co/600x400",
+        "heroImage": "https://placehold.co/1200x700",
+        "heroTitle": "Plan Your Resort Escape",
+        "heroSubtitle": "Day-pass and stay-ready reservation flows for private resorts and amenities.",
+        "primaryColor": "#16403A",
+        "contact": {
+          "chatUrl": "https://m.me/placeholder",
+          "phone": "+639XXXXXXXXX",
+          "sms": "+639XXXXXXXXX"
+        }
+      },
+      "resources": [
+        {
+          "id": "pool-day-pass",
+          "label": "Pool Day Pass",
+          "image": "https://placehold.co/900x650",
+          "description": "Access to pool amenities, seating, and guest facilities.",
+          "capacityLabel": "Per guest group",
+          "baseRate": 2500
+        },
+        {
+          "id": "cabana-access",
+          "label": "Cabana Access",
+          "image": "https://placehold.co/900x650",
+          "description": "Private cabana reservation for daytime resort visits.",
+          "capacityLabel": "Up to 8 guests",
+          "baseRate": 4200
+        },
+        {
+          "id": "overnight-suite",
+          "label": "Overnight Suite",
+          "image": "https://placehold.co/900x650",
+          "description": "Premium suite access for private resort stays.",
+          "capacityLabel": "Up to 6 guests",
+          "baseRate": 9500
+        }
+      ],
+      "pricingTiers": [
+        {
+          "id": "day-pass",
+          "label": "Day Access Rate",
+          "color": "green",
+          "rate": 2500,
+          "unit": "day",
+          "rules": []
+        }
+      ],
+      "addons": [
+        {
+          "id": "towel-package",
+          "label": "Towel Package",
+          "pricePerUnit": 150,
+          "maxUnits": 10
+        },
+        {
+          "id": "meal-voucher",
+          "label": "Meal Voucher",
+          "pricePerUnit": 450,
+          "maxUnits": 12
+        },
+        {
+          "id": "extra-guest-pass",
+          "label": "Extra Guest Pass",
+          "pricePerUnit": 650,
+          "maxUnits": 8
+        }
+      ]
     }
   ]
 }

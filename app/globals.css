@@ -12,15 +12,13 @@
 
 html {
   scroll-behavior: smooth;
-  background: #f5f2ea;
+  background: #f9f7f4;
 }
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top left, rgba(46, 125, 94, 0.14), transparent 34rem),
-    linear-gradient(135deg, #f8f5ed 0%, #eef4ed 52%, #f7f3ea 100%);
-  color: #17231d;
+  background: #f9f7f4;
+  color: #1c1917;
 }
 
 button,

@@ -1,6 +1,6 @@
-import { getConfig } from "@/lib/config";
+import { getProfileById } from "@/lib/config";
 import { getPricingTierForSlot } from "@/lib/pricing";
-import type { TimeSlot } from "@/types";
+import type { DemoProfile, TimeSlot } from "@/types";
 
 function timeToMinutes(time: string): number {
   const [hour = "0", minute = "0"] = time.split(":");
@@ -27,28 +27,43 @@ function getDeterministicStatus(date: Date, resourceId: string, time: string): T
     .split("")
     .reduce((sum, char) => sum + char.charCodeAt(0), 0);
 
-  if (seed % 17 === 0) return "booked";
-  if (seed % 13 === 0) return "pending";
+  if (seed % 19 === 0) return "booked";
+  if (seed % 17 === 0) return "pending";
   return "available";
 }
 
-export function generateSlots(date: Date, resourceId: string): TimeSlot[] {
-  const config = getConfig();
-  const startMinutes = timeToMinutes(config.operatingHours.open);
-  const closeMinutes = timeToMinutes(config.operatingHours.close);
+export function generateSlots(date: Date, resourceId: string, profileId: string): TimeSlot[] {
+  const profile = getProfileById(profileId);
+
+  if (profile.bookingMode !== "hourly" || !profile.operatingHours) {
+    return [];
+  }
+
+  return generateHourlySlots(date, resourceId, profile);
+}
+
+function generateHourlySlots(date: Date, resourceId: string, profile: DemoProfile): TimeSlot[] {
+  const operatingHours = profile.operatingHours;
+  if (!operatingHours) return [];
+
+  const resource = profile.resources.find((item) => item.id === resourceId);
+  const startMinutes = timeToMinutes(operatingHours.open);
+  const closeMinutes = timeToMinutes(operatingHours.close);
   const endMinutes = closeMinutes <= startMinutes ? closeMinutes + 24 * 60 : closeMinutes;
   const slots: TimeSlot[] = [];
 
-  for (let cursor = startMinutes; cursor < endMinutes; cursor += config.operatingHours.slotDurationMinutes) {
+  for (let cursor = startMinutes; cursor < endMinutes; cursor += operatingHours.slotDurationMinutes) {
     const time = minutesToTime(cursor);
-    const tier = getPricingTierForSlot(date, time, config.pricingTiers);
+    const tier = getPricingTierForSlot(date, time, profile.pricingTiers);
+    const price = resource?.baseRate ?? tier.rate;
 
     slots.push({
-      id: `${resourceId}-${date.toISOString().slice(0, 10)}-${time}`,
+      id: `${profile.id}-${resourceId}-${date.toISOString().slice(0, 10)}-${time}`,
       time,
       displayTime: formatDisplayTime(time),
       pricingTierId: tier.id,
-      pricePerHour: tier.ratePerHour,
+      price,
+      unit: profile.pricingUnit,
       status: getDeterministicStatus(date, resourceId, time)
     });
   }

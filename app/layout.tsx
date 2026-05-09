@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
-import { getConfig } from "@/lib/config";
+import { getDefaultProfile } from "@/lib/config";
 
-const config = getConfig();
+const profile = getDefaultProfile();
 
 export const metadata: Metadata = {
-  title: `${config.client.brandName} Booking`,
-  description: config.client.heroSubtitle
+  title: `${profile.client.brandName} Booking`,
+  description: profile.client.heroSubtitle
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
