@@ -1,0 +1,109 @@
+{
+  "client": {
+    "id": "venueflow-demo",
+    "brandName": "VenueFlow Demo",
+    "logo": "https://placehold.co/600x400",
+    "heroImage": "https://placehold.co/600x400",
+    "heroTitle": "Reserve a Space in Minutes",
+    "heroSubtitle": "A flexible demo venue with bookable villas, lounges, studios, courts, and event spaces.",
+    "primaryColor": "#2E7D5E",
+    "contact": {
+      "chatUrl": "https://m.me/placeholder",
+      "phone": "+639XXXXXXXXX",
+      "sms": "+639XXXXXXXXX"
+    }
+  },
+  "operatingHours": {
+    "open": "08:00",
+    "close": "24:00",
+    "slotDurationMinutes": 30
+  },
+  "resources": [
+    {
+      "id": "garden-villa",
+      "label": "Garden Villa",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "poolside-lounge",
+      "label": "Poolside Lounge",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "studio-room",
+      "label": "Studio Room",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "private-court",
+      "label": "Private Court",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "event-deck",
+      "label": "Event Deck",
+      "image": "https://placehold.co/600x400"
+    }
+  ],
+  "pricingTiers": [
+    {
+      "id": "special",
+      "label": "Introductory Demo Rate",
+      "color": "blue",
+      "ratePerHour": 150,
+      "rules": []
+    },
+    {
+      "id": "standard",
+      "label": "Weekday Day Rate",
+      "color": "orange",
+      "ratePerHour": 200,
+      "rules": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "10:00",
+          "end": "16:00"
+        }
+      ]
+    },
+    {
+      "id": "peak",
+      "label": "Prime Evening Rate",
+      "color": "yellow",
+      "ratePerHour": 250,
+      "rules": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu"
+          ],
+          "start": "16:00",
+          "end": "22:00"
+        }
+      ]
+    },
+    {
+      "id": "online",
+      "label": "Standard Online Rate",
+      "color": "gray",
+      "ratePerHour": 350,
+      "rules": []
+    }
+  ],
+  "addons": [
+    {
+      "id": "amenity-kit",
+      "label": "Amenity Kit",
+      "pricePerUnit": 50,
+      "maxUnits": 4
+    }
+  ]
+}

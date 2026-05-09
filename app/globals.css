@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #f5f2ea;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(46, 125, 94, 0.14), transparent 34rem),
+    linear-gradient(135deg, #f8f5ed 0%, #eef4ed 52%, #f7f3ea 100%);
+  color: #17231d;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
