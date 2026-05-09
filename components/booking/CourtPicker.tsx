@@ -1,9 +1,6 @@
 "use client";
 
-<<<<<<< HEAD
 import type { CSSProperties } from "react";
-=======
->>>>>>> main
 import type { Resource } from "@/types";
 
 interface CourtPickerProps {
@@ -13,7 +10,6 @@ interface CourtPickerProps {
   primaryColor: string;
 }
 
-<<<<<<< HEAD
 function isPlaceholderUrl(url: string): boolean {
   return url.includes("placehold.co");
 }
@@ -57,25 +53,6 @@ export function CourtPicker({ resources, selectedResource, onSelectResource, pri
                   <p className="mt-1 text-xs font-semibold text-white/75">Tap to select this option</p>
                 </div>
               </div>
-=======
-export function CourtPicker({ resources, selectedResource, onSelectResource, primaryColor }: CourtPickerProps) {
-  return (
-    <section className="px-4 py-3">
-      <p className="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slate-500">Step 2 · Select Court</p>
-      <div className="scrollbar-hide flex gap-4 overflow-x-auto pb-2">
-        {resources.map((resource) => {
-          const selected = resource.id === selectedResource;
-          return (
-            <button key={resource.id} type="button" onClick={() => onSelectResource(resource.id)} className="min-w-[112px] text-center">
-              <div
-                className="h-24 rounded-3xl border-4 bg-cover bg-center shadow-sm transition"
-                style={{
-                  borderColor: selected ? primaryColor : "transparent",
-                  backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.2)), url(${resource.image})`
-                }}
-              />
-              <span className="mt-2 block text-sm font-black text-slate-800">{resource.label}</span>
->>>>>>> main
             </button>
           );
         })}

@@ -1,14 +1,10 @@
-<<<<<<< HEAD
 import type { CSSProperties } from "react";
-=======
->>>>>>> main
 import type { ClientConfig } from "@/types";
 
 interface HeroBannerProps {
   config: ClientConfig;
 }
 
-<<<<<<< HEAD
 function isPlaceholderUrl(url: string): boolean {
   return url.includes("placehold.co");
 }
@@ -46,21 +42,6 @@ export function HeroBanner({ config }: HeroBannerProps) {
             <span className="rounded-2xl border border-white/20 bg-white/20 px-2.5 py-2 text-center text-[10px] font-black uppercase tracking-wide backdrop-blur-md">{config.operatingHours.slotDurationMinutes}-min slots</span>
             <span className="rounded-2xl border border-white/20 bg-white/20 px-2.5 py-2 text-center text-[10px] font-black uppercase tracking-wide backdrop-blur-md">{formatOperatingHours(config.operatingHours.open, config.operatingHours.close)}</span>
           </div>
-=======
-export function HeroBanner({ config }: HeroBannerProps) {
-  return (
-    <section className="px-4 pt-4">
-      <div
-        className="relative min-h-[230px] overflow-hidden rounded-[2rem] bg-cover bg-center shadow-soft"
-        style={{ backgroundImage: `linear-gradient(180deg, rgba(9, 20, 15, 0.12), rgba(9, 20, 15, 0.76)), url(${config.client.heroImage})` }}
-      >
-        <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-          <p className="mb-3 inline-flex rounded-full bg-white/20 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] backdrop-blur">
-            {config.client.brandName}
-          </p>
-          <h1 className="text-4xl font-black leading-[0.95] tracking-tight">{config.client.heroTitle}</h1>
-          <p className="mt-3 text-sm font-semibold text-white/85">{config.client.heroSubtitle}</p>
->>>>>>> main
         </div>
       </div>
     </section>

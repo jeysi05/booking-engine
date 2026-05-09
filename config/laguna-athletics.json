@@ -1,20 +1,11 @@
 {
   "client": {
-<<<<<<< HEAD
     "id": "venueflow-demo",
     "brandName": "VenueFlow Demo",
     "logo": "https://placehold.co/600x400",
     "heroImage": "https://placehold.co/600x400",
     "heroTitle": "Reserve a Space in Minutes",
     "heroSubtitle": "A flexible demo venue with bookable villas, lounges, studios, courts, and event spaces.",
-=======
-    "id": "laguna-athletics",
-    "brandName": "Pickle Jar Courts",
-    "logo": "https://placehold.co/600x400",
-    "heroImage": "https://placehold.co/600x400",
-    "heroTitle": "Reserve Your Winning Moment",
-    "heroSubtitle": "Open daily from 8:00 AM to 12:00 AM",
->>>>>>> main
     "primaryColor": "#2E7D5E",
     "contact": {
       "chatUrl": "https://m.me/placeholder",
@@ -29,7 +20,6 @@
   },
   "resources": [
     {
-<<<<<<< HEAD
       "id": "garden-villa",
       "label": "Garden Villa",
       "image": "https://placehold.co/600x400"
@@ -52,52 +42,20 @@
     {
       "id": "event-deck",
       "label": "Event Deck",
-=======
-      "id": "court-1",
-      "label": "Court 1",
-      "image": "https://placehold.co/600x400"
-    },
-    {
-      "id": "court-2",
-      "label": "Court 2",
-      "image": "https://placehold.co/600x400"
-    },
-    {
-      "id": "court-3",
-      "label": "Court 3",
-      "image": "https://placehold.co/600x400"
-    },
-    {
-      "id": "court-4",
-      "label": "Court 4",
-      "image": "https://placehold.co/600x400"
-    },
-    {
-      "id": "court-5",
-      "label": "Court 5",
->>>>>>> main
       "image": "https://placehold.co/600x400"
     }
   ],
   "pricingTiers": [
     {
       "id": "special",
-<<<<<<< HEAD
       "label": "Introductory Demo Rate",
-=======
-      "label": "Special Pricing",
->>>>>>> main
       "color": "blue",
       "ratePerHour": 150,
       "rules": []
     },
     {
       "id": "standard",
-<<<<<<< HEAD
       "label": "Weekday Day Rate",
-=======
-      "label": "₱200/hr (Mon–Fri 10AM–4PM)",
->>>>>>> main
       "color": "orange",
       "ratePerHour": 200,
       "rules": [
@@ -116,11 +74,7 @@
     },
     {
       "id": "peak",
-<<<<<<< HEAD
       "label": "Prime Evening Rate",
-=======
-      "label": "₱250/hr (Mon–Thu 4PM–10PM)",
->>>>>>> main
       "color": "yellow",
       "ratePerHour": 250,
       "rules": [
@@ -138,11 +92,7 @@
     },
     {
       "id": "online",
-<<<<<<< HEAD
       "label": "Standard Online Rate",
-=======
-      "label": "₱350/hr (Standard Online)",
->>>>>>> main
       "color": "gray",
       "ratePerHour": 350,
       "rules": []
@@ -150,13 +100,8 @@
   ],
   "addons": [
     {
-<<<<<<< HEAD
       "id": "amenity-kit",
       "label": "Amenity Kit",
-=======
-      "id": "paddle-rental",
-      "label": "Paddle Rental",
->>>>>>> main
       "pricePerUnit": 50,
       "maxUnits": 4
     }
