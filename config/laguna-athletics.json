@@ -1,0 +1,116 @@
+{
+  "client": {
+    "id": "venueflow-demo",
+    "brandName": "VenueFlow Demo",
+    "logo": "https://placehold.co/600x400",
+    "heroImage": "https://placehold.co/600x400",
+    "heroTitle": "Reserve Your Perfect Space",
+    "heroSubtitle": "A flexible reservation experience for villas, staycations, courts, studios, and resort amenities.",
+    "primaryColor": "#1A3A2A",
+    "contact": {
+      "chatUrl": "https://m.me/placeholder",
+      "phone": "+639XXXXXXXXX",
+      "sms": "+639XXXXXXXXX"
+    }
+  },
+  "operatingHours": {
+    "open": "08:00",
+    "close": "24:00",
+    "slotDurationMinutes": 30
+  },
+  "resources": [
+    {
+      "id": "garden-villa",
+      "label": "Garden Villa",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "poolside-lounge",
+      "label": "Poolside Lounge",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "private-court",
+      "label": "Private Court",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "studio-room",
+      "label": "Studio Room",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "resort-suite",
+      "label": "Resort Suite",
+      "image": "https://placehold.co/600x400"
+    }
+  ],
+  "pricingTiers": [
+    {
+      "id": "special",
+      "label": "Introductory Rate",
+      "color": "blue",
+      "ratePerHour": 150,
+      "rules": []
+    },
+    {
+      "id": "standard",
+      "label": "Weekday Day Rate",
+      "color": "orange",
+      "ratePerHour": 200,
+      "rules": [
+        {
+          "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+          "start": "10:00",
+          "end": "16:00"
+        }
+      ]
+    },
+    {
+      "id": "peak",
+      "label": "Prime Evening Rate",
+      "color": "yellow",
+      "ratePerHour": 250,
+      "rules": [
+        {
+          "days": ["Mon", "Tue", "Wed", "Thu"],
+          "start": "16:00",
+          "end": "22:00"
+        }
+      ]
+    },
+    {
+      "id": "online",
+      "label": "Standard Online Rate",
+      "color": "gray",
+      "ratePerHour": 350,
+      "rules": []
+    }
+  ],
+  "addons": [
+    {
+      "id": "equipment-rental",
+      "label": "Equipment Rental",
+      "pricePerUnit": 50,
+      "maxUnits": 4
+    },
+    {
+      "id": "early-access",
+      "label": "Early Access",
+      "pricePerUnit": 100,
+      "maxUnits": 2
+    },
+    {
+      "id": "extra-guest-pass",
+      "label": "Extra Guest Pass",
+      "pricePerUnit": 75,
+      "maxUnits": 6
+    },
+    {
+      "id": "refreshment-package",
+      "label": "Refreshment Package",
+      "pricePerUnit": 120,
+      "maxUnits": 4
+    }
+  ]
+}
