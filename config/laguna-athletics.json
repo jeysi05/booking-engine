@@ -1,0 +1,109 @@
+{
+  "client": {
+    "id": "laguna-athletics",
+    "brandName": "Pickle Jar Courts",
+    "logo": "https://placehold.co/600x400",
+    "heroImage": "https://placehold.co/600x400",
+    "heroTitle": "Reserve Your Winning Moment",
+    "heroSubtitle": "Open daily from 8:00 AM to 12:00 AM",
+    "primaryColor": "#2E7D5E",
+    "contact": {
+      "chatUrl": "https://m.me/placeholder",
+      "phone": "+639XXXXXXXXX",
+      "sms": "+639XXXXXXXXX"
+    }
+  },
+  "operatingHours": {
+    "open": "08:00",
+    "close": "24:00",
+    "slotDurationMinutes": 30
+  },
+  "resources": [
+    {
+      "id": "court-1",
+      "label": "Court 1",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "court-2",
+      "label": "Court 2",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "court-3",
+      "label": "Court 3",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "court-4",
+      "label": "Court 4",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "id": "court-5",
+      "label": "Court 5",
+      "image": "https://placehold.co/600x400"
+    }
+  ],
+  "pricingTiers": [
+    {
+      "id": "special",
+      "label": "Special Pricing",
+      "color": "blue",
+      "ratePerHour": 150,
+      "rules": []
+    },
+    {
+      "id": "standard",
+      "label": "₱200/hr (Mon–Fri 10AM–4PM)",
+      "color": "orange",
+      "ratePerHour": 200,
+      "rules": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "10:00",
+          "end": "16:00"
+        }
+      ]
+    },
+    {
+      "id": "peak",
+      "label": "₱250/hr (Mon–Thu 4PM–10PM)",
+      "color": "yellow",
+      "ratePerHour": 250,
+      "rules": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu"
+          ],
+          "start": "16:00",
+          "end": "22:00"
+        }
+      ]
+    },
+    {
+      "id": "online",
+      "label": "₱350/hr (Standard Online)",
+      "color": "gray",
+      "ratePerHour": 350,
+      "rules": []
+    }
+  ],
+  "addons": [
+    {
+      "id": "paddle-rental",
+      "label": "Paddle Rental",
+      "pricePerUnit": 50,
+      "maxUnits": 4
+    }
+  ]
+}
